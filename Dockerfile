@@ -8,19 +8,18 @@ WORKDIR /var/www/html
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # プロジェクトのコードをコンテナにコピー
-COPY ./shift-app/public /var/www/html
-COPY ./shift-app/includes /var/www/includes
+COPY ./shift-app /var/www/html
 
 # Apacheの設定を調整
-RUN chown -R www-data:www-data /var/www/html /var/www/includes \
-    && chmod -R 755 /var/www/html /var/www/includes \
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
     && a2enmod rewrite
 
-# DirectoryIndexの設定を追加
+# カスタムディレクトリインデックスを設定
 RUN echo "<IfModule dir_module>\n    DirectoryIndex index.php index.html\n</IfModule>" > /etc/apache2/conf-available/custom-directory-index.conf \
     && a2enconf custom-directory-index
 
-# ServerNameの設定を追加
+# サーバーネームを設定
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # サーバーを起動
