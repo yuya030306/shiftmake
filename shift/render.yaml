@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: shift-app
+    env: docker
+    region: ap-northeast-1 # 適切なリージョンに変更
+    dockerfilePath: ./Dockerfile # ルートのDockerfileを指定
+    buildCommand: ""
+    startCommand: ""
+    plan: free
