@@ -9,10 +9,11 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # プロジェクトのコードをコンテナにコピー
 COPY ./shift-app/public /var/www/html
+COPY ./shift-app/includes /var/www/includes
 
 # Apacheの設定を調整
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html \
+RUN chown -R www-data:www-data /var/www/html /var/www/includes \
+    && chmod -R 755 /var/www/html /var/www/includes \
     && a2enmod rewrite
 
 # DirectoryIndexの設定を追加
