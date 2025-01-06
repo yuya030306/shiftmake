@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
 }
 
 require_once __DIR__ . '/../includes/db_connect.php';
-require_once __DIR__ '../includes/functions.php';
+require_once __DIR__ . '/../includes/functions.php';
 
 $selected_date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
 

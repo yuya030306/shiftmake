@@ -10,11 +10,17 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 # プロジェクトのコードをコンテナにコピー
 COPY ./shift-app /var/www/html
 
-
-# アパッチの設定を調整
+# Apacheの設定を調整
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html \
     && a2enmod rewrite
+
+# DirectoryIndexの設定を追加
+RUN echo "<IfModule dir_module>\n    DirectoryIndex index.php index.html\n</IfModule>" > /etc/apache2/conf-available/custom-directory-index.conf \
+    && a2enconf custom-directory-index
+
+# ServerNameの設定を追加
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # サーバーを起動
 CMD ["apache2-foreground"]
