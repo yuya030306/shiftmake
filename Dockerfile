@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # プロジェクトのコードをコンテナにコピー
-COPY ./public /var/www/html
+COPY ./shift-app/public /var/www/html
 
 # アパッチの設定を調整
 RUN chown -R www-data:www-data /var/www/html \
