@@ -20,4 +20,7 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 RUN a2enmod rewrite
 
 # 必要なApacheサイト設定を有効化
-RUN a2ensite 000-default.conf && service apache2 reload
+RUN a2ensite 000-default.conf
+
+# Apache設定をテストし、問題がない場合のみ再起動
+RUN apachectl configtest && apachectl graceful
