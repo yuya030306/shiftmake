@@ -6,12 +6,12 @@ services:
     plan: free
     envVars:
       - key: DB_HOST
-        value: ca0d77c5cf5fd1ad5c57e8ae40f12580
-      - key: DB_PORT
-        value: 78ac589aebe09a313cf1c719a12109a7
+        value: ca0d77c5cf5d1ad5c57e8ae40f12580
       - key: DB_NAME
-        value: b8188aae9fbcaee054a02599d375c6ed
-      - key: DB_USER
-        value: f2dbbcdc1ac66f6462798f289c24fa19
+        value: shift_app
       - key: DB_PASSWORD
         value: 4631b3a188dd3502dc7dfdf236726cb9
+      - key: DB_PORT
+        value: 78ac589aebe09a313cf1c719a12109a7
+      - key: DB_USER
+        value: f2dbbcdc1ac66f6462798f289c24fa19
