@@ -3,7 +3,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
-    if ($password === 'admin123') { // 適切なパスワードに変更
+    if ($password === 'admin123') { // パスワードを適切に設定
         $_SESSION['loggedin'] = true;
         header('Location: display.php');
         exit;
