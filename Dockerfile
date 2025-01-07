@@ -22,5 +22,8 @@ RUN a2enmod rewrite
 # 必要なApacheサイト設定を有効化
 RUN a2ensite 000-default.conf
 
-# Apache設定をテストし、問題がない場合のみ再起動
-RUN apachectl configtest && apachectl graceful
+# ServerName を設定し警告を抑制
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Apache設定をテストし、問題がない場合のみ起動
+CMD ["apache2-foreground"]
