@@ -16,8 +16,8 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 # ApacheのRewriteモジュールを有効化
 RUN a2enmod rewrite
 
-# Apacheのカスタム設定を追加
-RUN echo "<VirtualHost *:80>
+# カスタム Apache 設定を記述するファイルを作成
+RUN echo '<VirtualHost *:80>
     DocumentRoot /var/www/html
     <Directory /var/www/html>
         Options FollowSymLinks
@@ -25,7 +25,7 @@ RUN echo "<VirtualHost *:80>
         Require all granted
     </Directory>
     DirectoryIndex index.php index.html
-</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
-# Apache設定を有効化
+# 必要な Apache サイト設定を有効化
 RUN a2ensite 000-default.conf
