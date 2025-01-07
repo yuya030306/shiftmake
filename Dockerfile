@@ -16,13 +16,16 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 # ApacheのRewriteモジュールを有効化
 RUN a2enmod rewrite
 
-# DirectoryIndexをindex.phpに設定
-RUN echo "<Directory /var/www/html>
-    Options FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
-DirectoryIndex index.php" > /etc/apache2/sites-available/000-default.conf
+# Apacheのカスタム設定を追加
+RUN echo "<VirtualHost *:80>
+    DocumentRoot /var/www/html
+    <Directory /var/www/html>
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    DirectoryIndex index.php index.html
+</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
 # Apache設定を有効化
 RUN a2ensite 000-default.conf
