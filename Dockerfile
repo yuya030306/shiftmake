@@ -8,7 +8,8 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 WORKDIR /var/www/html
 
 # プロジェクトをコピー
-COPY ./shift-app /var/www/html
+COPY ./shift-app/public /var/www/html
+COPY ./shift-app/includes /var/www/html/includes
 
 # Apache設定ファイルをコピー
 COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
