@@ -6,9 +6,12 @@ $dbname = getenv('DB_NAME') ?: 'shift_app';
 $username = getenv('DB_USER') ?: 'root';
 $password = getenv('DB_PASSWORD') ?: '';
 
+// データベース接続文字列
+$dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+
 try {
     // データベース接続
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // エラー発生時のメッセージ出力
