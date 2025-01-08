@@ -5,8 +5,9 @@ if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
     exit;
 }
 
-require_once __DIR__ . '/../includes/db_connect.php';
-require_once __DIR__ . '/../includes/functions.php';
+// ファイルパスを絶対パスに変更
+require_once __DIR__ . '/includes/db_connect.php';
+require_once __DIR__ . '/includes/functions.php';
 
 $selected_date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
 
@@ -48,7 +49,7 @@ foreach ($shifts as $shift) {
 }
 ?>
 
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/includes/header.php'; ?>
 
 <div class="mb-3">
     <a href="shift_add.php" class="btn btn-primary">シフトを追加</a>
@@ -111,4 +112,4 @@ foreach ($shifts as $shift) {
     </div>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/includes/footer.php'; ?>
