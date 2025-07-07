@@ -1,0 +1,141 @@
+\documentclass[a4paper, twocolumn, 10pt]{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[top=20mm,bottom=20mm,left=23mm,right=23mm]{geometry}
+\usepackage[hang,small,bf]{caption}
+\usepackage{bm}
+\usepackage{url}
+%\usepackage[subrefformat=parens]{subcaption}
+
+
+\makeatletter
+
+\def\section{%
+	\@startsection{section}{1}{\z@}%
+	{.1\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
+	{.1\Cvs \@plus.1\Cdp}%
+	{\normalfont\normalsize\bfseries}%
+}
+
+\def\subsection{%
+	\@startsection{subsection}{1}{\z@}%
+	{.1\Cvs \@plus.1\Cdp \@minus.1\Cdp}%
+	{.1\Cvs \@plus.1\Cdp}%
+	{\normalfont\normalsize\bfseries}%
+}
+
+\def\@maketitle {
+	\begin{center}
+		\fontsize{14pt}{0pt}\selectfont
+		{\bf \@title}
+	\end{center}
+	\vspace{1pt}
+	\begin{flushleft}
+		{指導教員 〇〇 〇〇}\hfill{芝浦  太郎}
+	\end{flushleft}
+	\vspace{10pt}
+}
+
+\makeatother
+
+\captionsetup{compatibility=false}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\title{論文題目}
+
+\maketitle
+
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section 序論
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{序論(章タイトルは，各自内容に合わせてつけること)}
+このファイルは，芝浦工業大学工学部情報工学科卒研1および卒研2の概要書のテンプレートである．卒研1および卒研2の概要書はこのテンプレートを利用して作成される必要がある．
+
+用紙サイズはA4とし，本文は2カラムとする．用紙の余白は上20mm, 下20mm, 左23mm, 右23mmとする．また，論文題目の下，および，著者氏名の下には1行程度の空白を空ける．タイトルや本文などのフォントは以下の通りとする．
+\begin{itemize}
+  \setlength{\itemsep}{0mm}
+  \item 論文題目: ゴシック体，ボールド，14ポイント
+  \item 章・節の見出し： ゴシック体，10ポイント
+  \item 指導教員・著者指名: 明朝体，10ポイント
+  \item 本文: 明朝体，10ポイント
+  \item 図表のキャプション: 明朝体, 9ポイント
+  \item 参考文献: 明朝体, 9ポイント
+\end{itemize}
+このテンプレートでは上述の書式が既に設定されているので，これをそのまま利用すれば問題ない．
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section 研究目的
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{研究目的}
+論文では，必要に応じて図や表を掲載し本文より参照すること．例えば，図の参照は『図\ref{fig_nn}に3層のニューラルネットワークを示す』，表の参照は『表\ref{table_a}に手法Aおよび手法Bの正答率を示す』などとする．図のキャプションは図の下に，表のキャプションは表の上に書く．
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio, width=60mm]{img/sample.png}
+	\caption{提案法に用いた3層のニューラルネットワーク．キャプションにはこの図の説明を書く．}
+	\label{fig_nn}
+\end{figure}
+
+\begin{table}[h]
+  \caption{手法Aおよび手法Bの正解率と平均計算時間．}
+  \label{table_a}
+  \centering
+  \begin{tabular}{lcr}
+    \hline
+    手法   & 正解率[\%]  &  計算時間[ms]  \\
+    \hline \hline
+    手法A  & 92.3  & 512 \\
+    手法B  & 87.4  & 32  \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{参考文献の引用方法}
+
+参考文献は，『井尻らは，X線CTとデジタルカメラを用いた3次元モデリング法を提案した\cite{Ijiri18}．』のように引用する．参考文献リストは，『著者1, 著者2,...,著者N. タイトル. 論文誌or学会名, 巻, 号, ページ, 発表年. 』の形式とする．
+文献によっては，巻・号・ページがないものもある．著者が多い場合には，『〇〇他』や『AAA et. al.』として省略しても良い．
+変化する可能性があるWebページの引用はあまり推奨されないが，Webページを引用する必要がある場合は末尾に参照日時を記入すること『著者. ページタイトル. ページURL(2021年7月31日参照) .』参考文献リストについて，ref.bibファイルに引用したい文献情報を記載しておくとLatexが自動で整形してくれるので活用すると良い．
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Section Latexのコンパイル方法
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Latexファイルのコンパイル方法}
+
+\subsection{ローカルにLatex環境を構築する場合}
+各自好みの環境を使ってコンパイルするとよい．例として，TeXLiveを利用す場合は以下の手順でpdfを構築できる．
+(1) TexLive\cite{TexLive}をインストール．
+(2) フォルダ内のresume.texをTexLiveと同梱されているTexWorksで開く．
+(3) 左上で『pBibTex』を指定しコンパイルを実行．
+(4) 左上で『pLatex』を指定しコンパイルを実行（参考文献が?となる場合はこれを複数回実行）．
+
+
+\subsection{Overleafを利用する場合}
+Overleafを利用する場合，以下の手順でpdfを作成できる．
+(1)フォルダ内のresume.tex, ref.bib, latexmkrc, img/sample.pngをoverleafのプロジェクトにコピー．
+(2)OVerleafのメニューより，コンパイラを『LaTeX』に，TexLive versionを2020に変更．
+(3)リコンパイルボタンを押す．
+もしエラーが起こる場合，(*)右側の画面からキャッシュファイルを削除する，(*)コンパイラを違うものに変更してコンパイルしてから再度LaTeXでコンパイル，(*)フォルダをつくりその中でresume.texをコンパイル，などを試すとうまくいく場合がある．
+
+
+\section{まとめと展望}
+最後に，概要書・卒業論文執筆前に『理科系の作文技術\cite{Kinoshita81}』および『数学文章作法 基礎編\cite{Yuki13}』を読んでおくことを勧める．
+多くの学生にとって，卒業論文執筆は非常に時間のかかるタスクとなると思われる．ぜひ，余裕を持って進めてほしい．
+
+
+\bibliographystyle{junsrt}
+{\footnotesize \bibliography{ref.bib}}
+
+\end{document}
