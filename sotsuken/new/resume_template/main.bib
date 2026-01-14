@@ -1,0 +1,79 @@
+@article{dijkstra1968letters,
+  title={Letters to the editor: go to statement considered harmful},
+  author={Dijkstra, Edsger W.},
+  journal={Communications of the ACM},
+  volume={11},
+  number={3},
+  pages={147--148},
+  year={1968},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{10.1145/48014.48021,
+author = {Ramshaw, Lyle},
+title = {Eliminating go to's while preserving program structure},
+year = {1988},
+issue_date = {1988},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {35},
+number = {4},
+issn = {0004-5411},
+url = {https://doi.org/10.1145/48014.48021},
+doi = {10.1145/48014.48021},
+abstract = {Suppose we want to eliminate the local go to statements of a Pascal program by replacing them with multilevel loop exit statements. The standard ground rules for eliminating go to's require that we preserve the flow graph of the program, but they allow us to completely rewrite the control structures that glue together the program's atomic tests and actions. The go to's can be eliminated from a program under those ground rules if and only if the flow graph of that program has the graph-theoretic property named reducibility.This paper considers a stricter set of ground rules, introduced by Peterson, Kasami, and Tokura, which demand that we preserve the program's original control structures, as well as its flow graph, while we eliminate its go to's. In particular, we are allowed to delete the go to statements and the labels that they jump to and to insert various exit statements and labeled repeat-endloop pairs for them to jump out of. But we are forbidden to change the rest of the program text in any way. The critical issue that determines whether go to's can be eliminated under these stricter rules turns out to be the static order of the atomic tests and actions in the program text. This static order can be encoded in the program's flow graph by augmenting it with extra edges. It can then be shown that the reducibility of a program's augmented flow graph, augmenting edges and all, is a necessary and sufficient condition for the eliminability of go to's from that program under the stricter rules.},
+journal = {J. ACM},
+pages = {893-920},
+numpages = {28}
+}
+
+
+@inproceedings{1871428067537325312,
+author = {Nagappan, Meiyappan and Robbes, Romain and Kamei, Yasutaka and Tanter, \'{E}ric and McIntosh, Shane and Mockus, Audris and Hassan, Ahmed E.},
+title = {An empirical study of goto in {C} code from {GitHub} repositories},
+year = {2015},
+isbn = {9781450336758},
+publisher = {ACM},
+url = {https://doi.org/10.1145/2786805.2786834},
+doi = {10.1145/2786805.2786834},
+abstract = {It is nearly 50 years since Dijkstra argued that goto obscures the flow of control in program execution and urged programmers to abandon the goto statement. While past research has shown that goto is still in use, little is known about whether goto is used in the unrestricted manner that Dijkstra feared, and if it is ‘harmful’ enough to be a part of a post-release bug. We, therefore, conduct a two part empirical study - (1) qualitatively analyze a statistically rep- resentative sample of 384 files from a population of almost 250K C programming language files collected from over 11K GitHub repositories and find that developers use goto in C files for error handling (80.21±5\%) and cleaning up resources at the end of a procedure (40.36 ± 5\%); and (2) quantitatively analyze the commit history from the release branches of six OSS projects and find that no goto statement was re- moved/modified in the post-release phase of four of the six projects. We conclude that developers limit themselves to using goto appropriately in most cases, and not in an unrestricted manner like Dijkstra feared, thus suggesting that goto does not appear to be harmful in practice.},
+booktitle = {Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering},
+pages = {404--414},
+numpages = {11},
+keywords = {Use of goto statements, GitHub, Empirical SE, Dijkstra},
+location = {Bergamo, Italy},
+series = {ESEC/FSE 2015}
+}
+
+@article{10.1145/356635.356640,
+author = {Knuth, Donald E.},
+title = {Structured Programming with go to Statements},
+year = {1974},
+issue_date = {1974},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {6},
+number = {4},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/356635.356640},
+doi = {10.1145/356635.356640},
+journal = {ACM Comput. Surv.},
+pages = {261--301},
+numpages = {41}
+}
+
+@misc{zegour1994new,
+  title={A new method for the GOTOs' elimination},
+  author={Zegour, D. E. and Abbasi, B.},
+  howpublished={\url{https://zegour.esi.dz/Ftp/Goto.pdf}},
+  year={1994}
+}
+
+@inproceedings{ceccato2008goto,
+  title={Goto elimination strategies in the migration of legacy code to Java},
+  author={Ceccato, Mariano and Tonella, Paolo and Matteotti, Cristina},
+  booktitle={2008 12th European Conference on Software Maintenance and Reengineering},
+  pages={53--62},
+  year={2008},
+  organization={IEEE}
+}
